@@ -5,13 +5,18 @@ import { getAccessToken } from '@/utils/spotify';
 
 export default function Home() {
   const [accessToken, setAccessToken] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const token = getAccessToken();
     setAccessToken(token);
-    setIsLoading(false);
   }, []);
+
+  // Don't render anything until after client-side hydration
+  if (!mounted) {
+    return null;
+  }
 
   const handleLogin = () => {
     const client_id = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
@@ -46,18 +51,11 @@ export default function Home() {
   };
 
   const handleLogout = () => {
-    // Remove all Spotify-related items from localStorage
     localStorage.removeItem('spotify_access_token');
     localStorage.removeItem('spotify_refresh_token');
     localStorage.removeItem('spotify_token_timestamp');
-
-    // Update state to reflect logged out status
     setAccessToken(null);
   };
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
