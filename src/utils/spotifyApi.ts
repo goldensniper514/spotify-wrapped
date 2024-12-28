@@ -26,11 +26,11 @@ export const getRecentlyPlayed = () =>
     axios.get('https://api.spotify.com/v1/me/player/recently-played', { headers: getHeaders() });
 
 // Top Artists
-export const getTopArtists = (timeRange: 'short_term' | 'medium_term' | 'long_term') =>
+export const getTopArtists = (timeRange: 'short_term' | 'medium_term' | 'long_term' = 'long_term') =>
     axios.get(`https://api.spotify.com/v1/me/top/artists?limit=50&time_range=${timeRange}`, { headers: getHeaders() });
 
 // Top Tracks
-export const getTopTracks = (timeRange: 'short_term' | 'medium_term' | 'long_term') =>
+export const getTopTracks = (timeRange: 'short_term' | 'medium_term' | 'long_term' = 'long_term') =>
     axios.get(`https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=${timeRange}`, { headers: getHeaders() });
 
 // Combined user info fetch

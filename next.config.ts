@@ -5,6 +5,9 @@ const nextConfig = {
     NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET,
     NEXT_PUBLIC_REDIRECT_URI: process.env.NEXT_PUBLIC_REDIRECT_URI,
   },
+  images: {
+    domains: ['i.scdn.co'],
+  },
 };
 
 export default nextConfig;

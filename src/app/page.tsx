@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { getAccessToken } from '@/utils/spotify';
+import User from '@/components/User';
 
 export default function Home() {
   const [accessToken, setAccessToken] = useState<string | null>(null);
@@ -58,24 +59,18 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+    <main className="min-h-screen bg-zinc-950 text-white">
       {accessToken ? (
-        <div className="flex flex-col items-center gap-4">
-          <div>Logged in!</div>
+        <User />
+      ) : (
+        <div className="flex min-h-screen flex-col items-center justify-center p-24">
           <button
-            onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleLogin}
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
-            Logout
+            Login with Spotify
           </button>
         </div>
-      ) : (
-        <button
-          onClick={handleLogin}
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Login with Spotify
-        </button>
       )}
     </main>
   );
