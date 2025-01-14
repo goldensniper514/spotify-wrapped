@@ -15,13 +15,8 @@ export function TopTracks({ tracks }: TopTracksProps) {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-[18px] font-bold">Top Tracks of All Time</h3>
-        <button
-          className="mt-[11px] px-[24px] py-3 border border-white rounded-[30px] text-xs font-bold tracking-[1px] uppercase text-center 
-          hover:bg-white hover:text-black transition-all duration-250 m-0 "
-        >
-          SEE MORE
-        </button>
+        <h3 className="text-[18px] font-bold mr-6">Top Tracks of All Time</h3>
+        <button className="btn-general">SEE MORE</button>
       </div>
 
       <div>

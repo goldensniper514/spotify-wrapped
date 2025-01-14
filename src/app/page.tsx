@@ -68,10 +68,7 @@ export default function Home() {
         <User />
       ) : (
         <div className="flex min-h-screen flex-col items-center justify-center p-24">
-          <button
-            onClick={handleLogin}
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-          >
+          <button onClick={handleLogin} className="btn-green">
             Login with Spotify
           </button>
         </div>

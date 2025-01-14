@@ -75,7 +75,7 @@ a {
 }
 
 button {
-  @apply  text-white font-bold py-3 px-8 rounded-full transition-all duration-200;
+  @apply text-white font-bold py-3 px-8 rounded-full transition-all duration-200;
 
   &:hover {
     @apply bg-spotify-off-green scale-105;
@@ -96,5 +96,27 @@ button {
 
   &:hover {
     @apply bg-light-grey;
+  }
+}
+
+@layer components {
+  /* Base Button Styles */
+  .btn-base {
+    @apply text-base cursor-pointer border-none rounded-none transition-all duration-200 ease-spotify focus:outline-none;
+  }
+
+  /* Global Button Style */
+  .btn-global {
+    @apply inline-block text-lightest-grey font-circular text-base font-bold rounded-full p-2.5 cursor-pointer transition-all duration-200 ease-spotify hover:text-white focus:outline-none;
+  }
+
+  /* General Button Style */
+  .btn-general {
+    @apply inline-block text-white font-bold text-xs tracking-wider uppercase border border-white rounded-full px-6 py-2.5 cursor-pointer transition-all duration-200 ease-spotify hover:text-black hover:bg-white focus:outline-none;
+  }
+
+  /* Green Button Style */
+  .btn-green {
+    @apply inline-block bg-spotify-green text-white font-bold text-xs tracking-wider uppercase rounded-full px-6 py-2.5 my-5 cursor-pointer transition-all duration-200 ease-spotify hover:bg-spotify-off-green focus:outline-none;
   }
 }

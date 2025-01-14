@@ -40,6 +40,7 @@ export default {
         'xl': '100px',
       },
       transitionTimingFunction: {
+        'spotify': 'cubic-bezier(0.3, 0, 0.4, 1)',
         'in-cubic': 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
         'out-cubic': 'cubic-bezier(0.215, 0.61, 0.355, 1)',
         'in-out-cubic': 'cubic-bezier(0.215, 0.61, 0.355, 1)',
