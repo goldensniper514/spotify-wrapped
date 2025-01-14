@@ -7,6 +7,8 @@ import {
     getFollowing,
     getPlaylists,
 } from '@/utils/spotifyApi';
+import axios from 'axios';
+import { getAccessToken, logout, loginUrl } from '@/utils/spotify';
 
 export function useSpotifyData() {
     const [profile, setProfile] = useState<UserProfile | null>(null);
@@ -20,6 +22,12 @@ export function useSpotifyData() {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                const token = await getAccessToken();
+                if (!token) {
+                    window.location.href = loginUrl();
+                    return;
+                }
+
                 const [profileData, artistsData, tracksData, followingData, playlistsData] =
                     await Promise.all([
                         getUserProfile(),
@@ -35,8 +43,14 @@ export function useSpotifyData() {
                 setFollowing(profileData?.following?.artists?.items?.length);
                 setPlaylistsCount(playlistsData?.data?.items?.length);
             } catch (err) {
-                setError('Failed to load profile data');
                 console.error(err);
+
+                if (axios.isAxiosError(err) && (err.response?.status === 401 || err.response?.status === 403)) {
+                    window.location.href = loginUrl();
+                    return;
+                }
+
+                setError('Failed to load profile data');
             } finally {
                 setLoading(false);
             }

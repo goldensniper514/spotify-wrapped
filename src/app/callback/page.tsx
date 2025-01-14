@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { LoadingSpinner } from '@/components/UI/LoadingSpinner';
 
 export default function Callback() {
   const router = useRouter();
@@ -53,7 +54,7 @@ export default function Callback() {
 
   return (
     <div className="h-screen flex items-center justify-center bg-zinc-900">
-      <div className="text-white">Connecting to Spotify...</div>
+      <LoadingSpinner />
     </div>
   );
 }

@@ -9,9 +9,13 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    const token = getAccessToken();
-    setAccessToken(token);
+    const fetchToken = async () => {
+      setMounted(true);
+      const token = await getAccessToken();
+      setAccessToken(token);
+    };
+
+    fetchToken();
   }, []);
 
   // Don't render anything until after client-side hydration

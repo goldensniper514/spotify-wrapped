@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { getAccessToken } from './spotify';
 
-export const getHeaders = () => {
-    const token = getAccessToken();
+// Export getHeaders function
+const getHeaders = async () => {
+    const token = await getAccessToken();
     return {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
@@ -10,28 +11,49 @@ export const getHeaders = () => {
 };
 
 // User Profile
-export const getUser = () =>
-    axios.get('https://api.spotify.com/v1/me', { headers: getHeaders() });
+export const getUser = async () => {
+    try {
+        const headers = await getHeaders();
+        return axios.get('https://api.spotify.com/v1/me', { headers });
+    } catch (error) {
+        if (axios.isAxiosError(error) && error.response?.status === 401) {
+            // Token expired during request, refresh and retry once
+            const newHeaders = await getHeaders();
+            return axios.get('https://api.spotify.com/v1/me', { headers: newHeaders });
+        }
+        throw error;
+    }
+};
 
 // Following
-export const getFollowing = () =>
-    axios.get('https://api.spotify.com/v1/me/following?type=artist', { headers: getHeaders() });
+export const getFollowing = async () => {
+    const headers = await getHeaders();
+    return axios.get('https://api.spotify.com/v1/me/following?type=artist', { headers });
+};
 
 // Playlists
-export const getPlaylists = () =>
-    axios.get('https://api.spotify.com/v1/me/playlists', { headers: getHeaders() });
+export const getPlaylists = async () => {
+    const headers = await getHeaders();
+    return axios.get('https://api.spotify.com/v1/me/playlists', { headers });
+};
 
 // Recently Played
-export const getRecentlyPlayed = () =>
-    axios.get('https://api.spotify.com/v1/me/player/recently-played', { headers: getHeaders() });
+export const getRecentlyPlayed = async () => {
+    const headers = await getHeaders();
+    return axios.get('https://api.spotify.com/v1/me/player/recently-played', { headers });
+};
 
 // Top Artists
-export const getTopArtists = (timeRange: 'short_term' | 'medium_term' | 'long_term' = 'long_term') =>
-    axios.get(`https://api.spotify.com/v1/me/top/artists?limit=50&time_range=${timeRange}`, { headers: getHeaders() });
+export const getTopArtists = async (timeRange = 'long_term') => {
+    const headers = await getHeaders();
+    return axios.get(`https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}`, { headers });
+};
 
 // Top Tracks
-export const getTopTracks = (timeRange: 'short_term' | 'medium_term' | 'long_term' = 'long_term') =>
-    axios.get(`https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=${timeRange}`, { headers: getHeaders() });
+export const getTopTracks = async (timeRange = 'long_term') => {
+    const headers = await getHeaders();
+    return axios.get(`https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}`, { headers });
+};
 
 // Combined user info fetch
 export const getUserProfile = async () => {

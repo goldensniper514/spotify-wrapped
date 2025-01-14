@@ -9,7 +9,7 @@ export function TopArtists({ artists }: TopArtistsProps) {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-2xl font-bold">Top Artists of All Time</h3>
+        <h3 className="text-[18px] font-bold">Top Artists of All Time</h3>
         <button className="mt-[10px] px-[30px] py-3 border border-white rounded-[30px] text-xs font-bold tracking-[1px] uppercase text-center 
           hover:bg-white hover:text-black transition-all duration-250">
           SEE MORE
