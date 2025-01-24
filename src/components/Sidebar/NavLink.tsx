@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { LucideIcon } from 'lucide-react';
+import { ComponentType } from 'react';
 
 interface NavLinkProps {
   href: string;
-  icon: LucideIcon;
+  icon: ComponentType;
   label: string;
   vertical?: boolean;
 }
@@ -18,15 +18,17 @@ export function NavLink({ href, icon: Icon, label, vertical }: NavLinkProps) {
     <Link
       href={href}
       className={cn(
-        'flex items-center justify-center transition-colors hover:text-spotify-green',
-        isActive ? 'text-spotify-green' : 'text-gray-400',
+        'group flex items-center justify-center transition-all duration-200',
+        isActive ? 'text-white' : 'text-white/60',
         vertical
-          ? 'flex-col gap-1 px-2 py-3'
-          : 'flex-1 flex-col gap-1 px-1 py-2',
+          ? 'flex-col gap-1 px-1 hover:text-white'
+          : 'flex-1 flex-col gap-1 px-1 hover:text-white',
       )}
     >
-      <Icon className="h-6 w-6" />
-      <span className="text-xs font-medium">{label}</span>
+      <div className="h-[22px] w-[22px] flex items-center justify-center">
+        <Icon />
+      </div>
+      <span className="text-[11px] font-medium">{label}</span>
     </Link>
   );
 }
