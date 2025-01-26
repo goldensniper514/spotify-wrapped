@@ -11,10 +11,10 @@ export function Sidebar() {
   return (
     <>
       {/* Desktop Slim Sidebar */}
-      <aside className="fixed left-0 top-0 z-40 hidden h-screen w-[100px] bg-black/95 sm:block">
-        <div className="flex h-full flex-col items-center">
+      <aside className="fixed left-0 top-0 z-40 hidden h-screen w-[120px] bg-black/95 sm:block">
+        <div className="flex h-full flex-col items-stretch">
           {/* Top section with Spotify logo */}
-          <div className="pt-6">
+          <div className="flex justify-center pt-6">
             <div className="w-[42px] h-[42px] text-[#1DB954] hover:text-[#1ed760] transition-colors cursor-pointer">
               <IconSpotify />
             </div>
@@ -22,37 +22,25 @@ export function Sidebar() {
 
           {/* Navigation section - centered between logo and github */}
           <div className="flex-1 flex flex-col justify-center">
-            <div className="flex flex-col items-center gap-7">
-              <NavLink
-                href="/profile"
-                icon={IconUser}
-                label="Profile"
-                vertical
-              />
+            <div className="flex flex-col gap-4">
+              <NavLink href="/profile" icon={IconUser} label="Profile" />
               <NavLink
                 href="/top-artists"
                 icon={IconMicrophone}
                 label="Top Artists"
-                vertical
               />
-              <NavLink
-                href="/top-tracks"
-                icon={IconMusic}
-                label="Top Tracks"
-                vertical
-              />
-              <NavLink href="/recent" icon={IconTime} label="Recent" vertical />
+              <NavLink href="/top-tracks" icon={IconMusic} label="Top Tracks" />
+              <NavLink href="/recent" icon={IconTime} label="Recent" />
               <NavLink
                 href="/playlists"
                 icon={IconPlaylist}
                 label="Playlists"
-                vertical
               />
             </div>
           </div>
 
           {/* Bottom section with Github link */}
-          <div className="pb-6">
+          <div className="flex justify-center pb-6">
             <a
               href="https://github.com/osallak"
               target="_blank"

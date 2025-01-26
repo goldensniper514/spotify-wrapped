@@ -1,34 +1,33 @@
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ComponentType } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface NavLinkProps {
   href: string;
-  icon: ComponentType;
+  icon: ComponentType<{ className?: string }>;
   label: string;
-  vertical?: boolean;
 }
 
-export function NavLink({ href, icon: Icon, label, vertical }: NavLinkProps) {
+export function NavLink({ href, icon: Icon, label }: NavLinkProps) {
   const pathname = usePathname();
   const isActive = pathname === href;
 
   return (
-    <Link
-      href={href}
-      className={cn(
-        'group flex items-center justify-center transition-all duration-200',
-        isActive ? 'text-white' : 'text-white/60',
-        vertical
-          ? 'flex-col gap-1 px-1 hover:text-white'
-          : 'flex-1 flex-col gap-1 px-1 hover:text-white',
-      )}
-    >
-      <div className="h-[22px] w-[22px] flex items-center justify-center">
-        <Icon />
-      </div>
-      <span className="text-[11px] font-medium">{label}</span>
-    </Link>
+    <li className="w-full list-none">
+      <Link
+        href={href}
+        className={cn(
+          'flex flex-col items-center justify-center w-full py-2 text-[#9B9B9B] border-l-[5px] border-transparent transition-all duration-300 ease-in-out relative',
+          'hover:text-white hover:bg-[#181818] hover:border-l-[#1ed760]',
+          isActive && 'text-white bg-[#181818] border-l-[#1ed760]',
+        )}
+      >
+        <div className="w-6 h-6 flex items-center justify-center">
+          <Icon className="w-4 h-4" />
+        </div>
+        <div className="text-[11px] font-medium mt-[2px]">{label}</div>
+      </Link>
+    </li>
   );
 }
