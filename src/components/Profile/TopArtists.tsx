@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Artist } from "@/types/spotify";
+import { Artist } from "@/types";
 import Link from "next/link";
 
 interface TopArtistsProps {
@@ -20,10 +20,8 @@ export function TopArtists({ artists }: TopArtistsProps) {
         <ul className="space-y-2">
           {artists.map((artist, i) => (
             <li key={i}>
-              <a
-                href={artist.external_urls.spotify}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={`/artist/${artist.id}`}
                 className="flex items-center gap-4 p-3 rounded-md hover:bg-[#282828] transition-colors group h-[64px]"
               >
                 <div className="relative w-[48px] h-[48px] flex-shrink-0">
@@ -40,7 +38,7 @@ export function TopArtists({ artists }: TopArtistsProps) {
                     {artist.name}
                   </div>
                 </div>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

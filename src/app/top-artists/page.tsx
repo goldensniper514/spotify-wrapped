@@ -2,17 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { getTopArtists } from "@/utils/spotifyApi";
 import { Container } from "@/components/Container";
+import { Artist } from "@/types";
 
 type TimeRange = "long_term" | "medium_term" | "short_term";
-
-interface Artist {
-  id: string;
-  name: string;
-  images: { url: string }[];
-  external_urls: { spotify: string };
-}
 
 export default function TopArtists() {
   const [timeRange, setTimeRange] = useState<TimeRange>("long_term");
@@ -42,7 +37,7 @@ export default function TopArtists() {
   }, [timeRange]);
 
   return (
-    <Container as="main" className="bg-spotify-black">
+    <Container className="bg-spotify-black">
       <div className="mb-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0">
         <h2 className="text-lg sm:text-lg font-bold text-white text-center sm:text-left">
           Top Artists
@@ -79,11 +74,9 @@ export default function TopArtists() {
               </div>
             ))
           : artists.map((artist) => (
-              <a
+              <Link
                 key={artist.id}
-                href={artist.external_urls.spotify}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/artist/${artist.id}`}
                 className="group flex flex-col items-center text-center"
               >
                 <div className="relative w-full max-w-[200px]">
@@ -116,7 +109,7 @@ export default function TopArtists() {
                     {artist.name}
                   </span>
                 </p>
-              </a>
+              </Link>
             ))}
       </div>
     </Container>

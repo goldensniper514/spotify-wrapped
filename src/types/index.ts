@@ -1,34 +1,42 @@
 export interface SpotifyImage {
-    url: string;
-    height: number;
-    width: number;
+  url: string;
+  height: number;
+  width: number;
 }
 
 export interface Artist {
-    id: string;
-    name: string;
-    external_urls: {
-        spotify: string;
-    };
+  id: string;
+  name: string;
+  images: {
+    url: string;
+  }[];
+  followers: {
+    total: number;
+  };
+  genres: string[];
+  popularity: number;
+  external_urls: {
+    spotify: string;
+  };
 }
 
 export interface Album {
-    id: string;
-    name: string;
-    images: SpotifyImage[];
+  id: string;
+  name: string;
+  images: SpotifyImage[];
 }
 
 export interface Track {
-    id: string;
-    name: string;
-    duration_ms: number;
-    external_urls: {
-        spotify: string;
-    };
-    album: Album;
-    artists: Artist[];
+  id: string;
+  name: string;
+  duration_ms: number;
+  external_urls: {
+    spotify: string;
+  };
+  album: Album;
+  artists: Artist[];
 }
 
 export interface TopTracksResponse {
-    items: Track[];
+  items: Track[];
 }
