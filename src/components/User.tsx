@@ -1,11 +1,11 @@
-import { useSpotifyData } from '@/hooks/useSpotifyData';
-import { Sidebar } from './Sidebar/Sidebar';
-import { ProfileHeader } from './Profile/ProfileHeader';
-import { TopArtists } from './Profile/TopArtists';
-import { TopTracks } from './Profile/TopTracks';
-import { LoadingSpinner } from './UI/LoadingSpinner';
-import { ErrorMessage } from './UI/ErrorMessage';
-import { logout } from '@/utils/spotify';
+import { useSpotifyData } from "@/hooks/useSpotifyData";
+import { Sidebar } from "./Sidebar/Sidebar";
+import { ProfileHeader } from "./Profile/ProfileHeader";
+import { TopArtists } from "./Profile/TopArtists";
+import { TopTracks } from "./Profile/TopTracks";
+import { LoadingSpinner } from "./UI/LoadingSpinner";
+import { ErrorMessage } from "./UI/ErrorMessage";
+import { logout } from "@/utils/spotify";
 
 export default function User() {
   const {
@@ -32,7 +32,7 @@ export default function User() {
             following={following!}
             playlistsCount={playlistsCount!}
           />
-          <section className="w-full flex sm:flex-row flex-col items-start gap-[70px] mt-[100px]">
+          <section className="w-full flex sm:flex-row flex-col items-start gap-[70px] sm:mt-[100px] mt-[50px]">
             <div className="sm:flex-1 min-w-0 ">
               <TopArtists artists={topArtists} />
             </div>

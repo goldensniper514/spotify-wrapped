@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import { Artist } from '@/types/spotify';
+import Image from "next/image";
+import { Artist } from "@/types/spotify";
 
 interface TopArtistsProps {
   artists: Artist[];
@@ -8,9 +8,9 @@ interface TopArtistsProps {
 export function TopArtists({ artists }: TopArtistsProps) {
   return (
     <div>
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-start mb-6">
         <h3 className="text-[18px] font-bold mr-6">Top Artists of All Time</h3>
-        <button className="btn-general">SEE MORE</button>
+        <button className="btn-general whitespace-nowrap">SEE MORE</button>
       </div>
 
       <div>
@@ -29,7 +29,7 @@ export function TopArtists({ artists }: TopArtistsProps) {
                     alt={artist.name}
                     width={48}
                     height={48}
-                    className="rounded object-cover"
+                    className="rounded-full object-cover"
                   />
                 </div>
                 <div className="flex-grow min-w-0">

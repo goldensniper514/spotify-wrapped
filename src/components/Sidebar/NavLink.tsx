@@ -23,8 +23,8 @@ export function NavLink({ href, icon: Icon, label }: NavLinkProps) {
         // Base styles
         "border-t-[3px] border-transparent sm:border-t-0 sm:border-l-[5px]",
         isActive
-          ? "text-white bg-black/40"
-          : "text-white/60 hover:text-white hover:bg-black/40",
+          ? "text-white  bg-spotify-black"
+          : "text-white/60 hover:text-white hover:bg-spotify-black",
         // Mobile: top border, Desktop: left border
         isActive &&
           "border-t-[#1ed760] sm:border-t-transparent sm:border-l-[#1ed760]",

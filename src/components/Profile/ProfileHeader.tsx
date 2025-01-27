@@ -1,5 +1,5 @@
-import { UserIcon } from '@heroicons/react/24/solid';
-import Image from 'next/image';
+import { UserIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 
 interface ProfileHeaderProps {
   profile: {
@@ -83,7 +83,7 @@ export function ProfileHeader({
           localStorage.clear();
           window.location.reload();
         }}
-        className="mt-[30px] px-[30px] py-3 border border-white rounded-[30px] text-xs font-bold tracking-[1px] uppercase text-center 
+        className="mt-[30px] px-[30px] py-3 border border-white rounded-[30px] text-xs font-bold tracking-[1px] uppercase text-center
           hover:bg-white hover:text-black transition-all duration-250"
       >
         Logout
