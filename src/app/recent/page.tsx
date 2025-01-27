@@ -73,7 +73,7 @@ export default function Recent() {
       <div className="sticky top-0 z-10 bg-spotify-black/95 backdrop-blur-sm">
         <div className="pb-6">
           <h2 className="text-lg font-bold text-white text-center sm:text-left">
-            Recently Played
+            Recently Played Tracks
           </h2>
         </div>
       </div>

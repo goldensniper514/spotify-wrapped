@@ -62,7 +62,7 @@ export default function Home() {
   };
 
   return (
-    <Container as="main" className="bg-spotify-black">
+    <Container className="bg-spotify-black">
       {accessToken ? (
         <User />
       ) : (

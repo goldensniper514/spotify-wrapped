@@ -8,6 +8,7 @@ import IconMicrophone from "@/icons/microphone";
 import IconMusic from "@/icons/music";
 import IconTime from "@/icons/time";
 import IconPlaylist from "@/icons/playlist";
+import Link from "next/link";
 
 export function Sidebar() {
   return (
@@ -17,9 +18,11 @@ export function Sidebar() {
         <div className="flex h-full flex-col">
           {/* Top section with Spotify logo */}
           <div className="flex justify-center py-6">
-            <div className="h-[42px] w-[42px] cursor-pointer text-[#1DB954] transition-colors hover:text-[#1ed760]">
-              <IconSpotify />
-            </div>
+            <Link href="/profile">
+              <div className="h-[42px] w-[42px] cursor-pointer text-[#1DB954] transition-colors hover:text-[#1ed760]">
+                <IconSpotify />
+              </div>
+            </Link>
           </div>
 
           {/* Navigation section - centered between logo and github */}

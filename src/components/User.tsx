@@ -25,7 +25,7 @@ export default function User() {
   return (
     <div className="flex min-h-screen bg-spotify-black">
       <Sidebar />
-      <main className="flex-1 lg:ml-32 lg:mr-16">
+      <main className="flex-1 ">
         <div className="max-w-[1400px] px-4 py-8 lg:px-[20px] lg:py-[40px] md:px-3 md:py-6 sm:px-2 sm:py-4">
           <ProfileHeader
             profile={profile!}

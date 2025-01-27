@@ -36,7 +36,7 @@ export default function TopTracks() {
   }, [timeRange]);
 
   return (
-    <Container as="main" className="bg-spotify-black">
+    <Container className="bg-spotify-black">
       <div className="sticky top-0 z-10 bg-spotify-black/95 backdrop-blur-sm">
         <div className="pb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0">
           <h2 className="text-lg sm:text-lg font-bold text-white text-center sm:text-left">

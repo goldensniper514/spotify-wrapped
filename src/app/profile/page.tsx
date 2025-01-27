@@ -5,7 +5,7 @@ import { Container } from "@/components/Container";
 
 export default function ProfilePage() {
   return (
-    <Container as="main" className="bg-spotify-black">
+    <Container className="bg-spotify-black">
       <User />
     </Container>
   );
