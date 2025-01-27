@@ -78,7 +78,7 @@ button {
   @apply text-white font-bold py-3 px-8 rounded-full transition-all duration-200;
 
   &:hover {
-    @apply bg-spotify-off-green scale-105;
+    @apply scale-105;
   }
 }
 

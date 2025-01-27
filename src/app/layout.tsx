@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Geist, Geist_Mono } from "next/font/google";
+import { Sidebar } from "@/components/Sidebar/Sidebar";
+import { usePathname } from "next/navigation";
 import "./globals.css";
-import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,25 +15,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Spotify Profile",
-  description: "View your Spotify stats",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const showSidebar = pathname !== "/";
+
   return (
     <html lang="en">
       <head>
         <link rel="icon" type="image/png" href="/favicon.png" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
-        {children}
+        {showSidebar && <Sidebar />}
+        <div className={showSidebar ? "sm:pl-[120px]" : ""}>{children}</div>
       </body>
     </html>
   );

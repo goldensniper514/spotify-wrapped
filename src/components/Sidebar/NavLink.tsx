@@ -1,11 +1,13 @@
-import { cn } from '@/lib/utils';
-import { ComponentType } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+"use client";
+
+import { cn } from "@/lib/utils";
+import { ComponentType } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavLinkProps {
   href: string;
-  icon: ComponentType<{ className?: string }>;
+  icon: ComponentType;
   label: string;
 }
 
@@ -14,20 +16,26 @@ export function NavLink({ href, icon: Icon, label }: NavLinkProps) {
   const isActive = pathname === href;
 
   return (
-    <li className="w-full list-none">
-      <Link
-        href={href}
-        className={cn(
-          'flex flex-col items-center justify-center w-full py-2 text-[#9B9B9B] border-l-[5px] border-transparent transition-all duration-300 ease-in-out relative',
-          'hover:text-white hover:bg-[#181818] hover:border-l-[#1ed760]',
-          isActive && 'text-white bg-[#181818] border-l-[#1ed760]',
-        )}
-      >
-        <div className="w-6 h-6 flex items-center justify-center">
-          <Icon className="w-4 h-4" />
-        </div>
-        <div className="text-[11px] font-medium mt-[2px]">{label}</div>
-      </Link>
-    </li>
+    <Link
+      href={href}
+      className={cn(
+        "group relative flex flex-col items-center py-4 transition-colors sm:w-full",
+        // Base styles
+        "border-t-[3px] border-transparent sm:border-t-0 sm:border-l-[5px]",
+        isActive
+          ? "text-white bg-black/40"
+          : "text-white/60 hover:text-white hover:bg-black/40",
+        // Mobile: top border, Desktop: left border
+        isActive &&
+          "border-t-[#1ed760] sm:border-t-transparent sm:border-l-[#1ed760]",
+        // Hover effects
+        "hover:border-t-[#1ed760] sm:hover:border-t-transparent sm:hover:border-l-[#1ed760]"
+      )}
+    >
+      <div className="h-6 w-6">
+        <Icon />
+      </div>
+      <span className="mt-1 text-xs">{label}</span>
+    </Link>
   );
 }
