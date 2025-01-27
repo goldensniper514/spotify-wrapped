@@ -40,7 +40,7 @@ export const getPlaylists = async () => {
 // Recently Played
 export const getRecentlyPlayed = async () => {
   const headers = await getHeaders();
-  return axios.get('https://api.spotify.com/v1/me/player/recently-played', { headers });
+  return axios.get('https://api.spotify.com/v1/me/player/recently-played?limit=50', { headers });
 };
 
 // Top Artists
