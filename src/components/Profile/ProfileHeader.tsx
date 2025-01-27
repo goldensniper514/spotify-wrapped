@@ -1,5 +1,6 @@
 import { UserIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ProfileHeaderProps {
   profile: {
@@ -68,12 +69,14 @@ export function ProfileHeader({
           </p>
         </div>
         <div className="text-center">
-          <div className="text-[#1DB954] font-bold text-[20px]">
-            {playlistsCount}
-          </div>
-          <p className="text-[#9B9B9B] text-xs uppercase tracking-[1px] mt-[5px]">
-            Playlists
-          </p>
+          <Link href="/playlists" className="group">
+            <div className="text-[#1DB954] font-bold text-[20px] group-hover:text-[#1ed760] transition-colors">
+              {playlistsCount}
+            </div>
+            <p className="text-[#9B9B9B] text-xs uppercase tracking-[1px] mt-[5px] group-hover:text-white transition-colors">
+              Playlists
+            </p>
+          </Link>
         </div>
       </div>
 
