@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
         {showSidebar && <Sidebar />}
-        <div className={showSidebar ? "sm:pl-[120px]" : ""}>{children}</div>
+        <main className={showSidebar ? "sm:pl-[120px]" : ""}>{children}</main>
       </body>
     </html>
   );

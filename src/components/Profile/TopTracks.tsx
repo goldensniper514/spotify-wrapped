@@ -1,5 +1,13 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { getTopTracks } from "@/utils/spotifyApi";
+import { Track, Artist } from "@/types";
+import { Loader } from "@/components/Loader";
 import Image from "next/image";
-import { Track } from "@/types/spotify";
+import Link from "next/link";
+
+type TimeRange = "short_term" | "medium_term" | "long_term";
 
 interface TopTracksProps {
   tracks: Track[];
@@ -16,7 +24,9 @@ export function TopTracks({ tracks }: TopTracksProps) {
     <div>
       <div className="flex justify-between items-start mb-6">
         <h3 className="text-[18px] font-bold mr-6">Top Tracks of All Time</h3>
-        <button className="btn-general whitespace-nowrap">SEE MORE</button>
+        <Link href="/top-tracks" className="btn-general whitespace-nowrap">
+          SEE MORE
+        </Link>
       </div>
 
       <div>
@@ -33,10 +43,23 @@ export function TopTracks({ tracks }: TopTracksProps) {
                   <Image
                     src={track.album.images[0].url}
                     alt={track.name}
-                    width={48}
-                    height={48}
+                    fill
                     className="rounded object-cover"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity group-hover:opacity-100 rounded">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-white"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
                 </div>
                 <div className="flex-grow min-w-0 flex justify-between items-center">
                   <div className="min-w-0 flex-grow">

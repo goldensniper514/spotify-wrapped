@@ -60,4 +60,4 @@ export function useSpotifyData() {
     }, []);
 
     return { profile, topArtists, topTracks, loading, error, following, playlistsCount };
-} 
+}

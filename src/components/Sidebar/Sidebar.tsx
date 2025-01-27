@@ -57,10 +57,14 @@ export function Sidebar() {
 
       {/* Mobile Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 z-40 w-full border-t border-white/10 bg-black/95 sm:hidden">
-        <div className="mx-auto grid h-16 max-w-lg grid-cols-5">
+        <div className="mx-auto grid h-20 max-w-lg grid-cols-5">
           <NavLink href="/profile" icon={IconUser} label="Profile" />
-          <NavLink href="/top-artists" icon={IconMicrophone} label="Artists" />
-          <NavLink href="/top-tracks" icon={IconMusic} label="Tracks" />
+          <NavLink
+            href="/top-artists"
+            icon={IconMicrophone}
+            label="Top Artists"
+          />
+          <NavLink href="/top-tracks" icon={IconMusic} label="Top Tracks" />
           <NavLink href="/recent" icon={IconTime} label="Recent" />
           <NavLink href="/playlists" icon={IconPlaylist} label="Playlists" />
         </div>

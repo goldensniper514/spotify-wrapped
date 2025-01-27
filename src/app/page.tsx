@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { getAccessToken } from "@/utils/spotify";
 import User from "@/components/User";
 import { useRouter } from "next/navigation";
+import { Container } from "@/components/Container";
 
 export default function Home() {
   const [accessToken, setAccessToken] = useState<string | null>(null);
@@ -61,7 +62,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-spotify-black">
+    <Container as="main" className="bg-spotify-black">
       {accessToken ? (
         <User />
       ) : (
@@ -69,12 +70,12 @@ export default function Home() {
           <h1 className="m-[0,0,10px] font-black text-2xl">Spotify Profile</h1>
           <button
             onClick={handleLogin}
-            className="inline-block bg-spotify-green text-white rounded-[30px]  tracking-[2px] text-center font-bold mt-2"
+            className="inline-block bg-spotify-green text-white rounded-[30px] tracking-[2px] text-center font-bold mt-2"
           >
             Login to Spotify
           </button>
         </div>
       )}
-    </main>
+    </Container>
   );
 }
