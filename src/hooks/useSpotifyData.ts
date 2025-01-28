@@ -1,14 +1,13 @@
-import { useState, useEffect } from 'react';
-import { UserProfile, Artist, Track } from '@/types/spotify';
+import { Artist, Track, UserProfile } from '@/types/spotify';
+import { getAccessToken, loginUrl } from '@/utils/spotify';
 import {
-  getUserProfile,
+  getPlaylists,
   getTopArtists,
   getTopTracks,
-  getFollowing,
-  getPlaylists,
+  getUserProfile,
 } from '@/utils/spotifyApi';
 import axios from 'axios';
-import { getAccessToken, logout, loginUrl } from '@/utils/spotify';
+import { useEffect, useState } from 'react';
 
 export function useSpotifyData() {
   const [profile, setProfile] = useState<UserProfile | null>(null);
@@ -28,12 +27,11 @@ export function useSpotifyData() {
           return;
         }
 
-        const [profileData, artistsData, tracksData, followingData, playlistsData] =
+        const [profileData, artistsData, tracksData,playlistsData] =
           await Promise.all([
             getUserProfile(),
             getTopArtists('long_term'),
             getTopTracks('long_term'),
-            getFollowing(),
             getPlaylists(),
           ]);
 

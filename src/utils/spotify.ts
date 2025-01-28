@@ -40,17 +40,17 @@ const getLocalRefreshToken = () => {
     return window.localStorage.getItem('spotify_refresh_token');
 };
 
-// Refresh token function
-const refreshAccessToken = async () => {
-    try {
-        const { data } = await axios.get(`/api/refresh_token?refresh_token=${getLocalRefreshToken()}`);
-        const { access_token } = data;
-        setLocalAccessToken(access_token);
-        window.location.reload();
-    } catch (e) {
-        console.error(e);
-    }
-};
+// // Refresh token function
+// const refreshAccessToken = async () => {
+//     try {
+//         const { data } = await axios.get(`/api/refresh_token?refresh_token=${getLocalRefreshToken()}`);
+//         const { access_token } = data;
+//         setLocalAccessToken(access_token);
+//         window.location.reload();
+//     } catch (e) {
+//         console.error(e);
+//     }
+// };
 
 // Add this new function to handle token refresh
 const refreshTokenAndRetry = async () => {
@@ -113,4 +113,4 @@ export const loginUrl = () => {
     });
 
     return `${SPOTIFY_AUTHORIZE_ENDPOINT}?${params.toString()}`;
-}; 
+};

@@ -1,13 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { getTopTracks } from "@/utils/spotifyApi";
-import { Track, Artist } from "@/types";
-import { Loader } from "@/components/Loader";
+import { Track } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
-type TimeRange = "short_term" | "medium_term" | "long_term";
 
 interface TopTracksProps {
   tracks: Track[];
