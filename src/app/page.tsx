@@ -68,6 +68,22 @@ export default function Home() {
       ) : (
         <div className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)]">
           <h1 className="m-[0,0,10px] font-black text-2xl">Spotify Profile</h1>
+          <div className="max-w-md mx-auto text-center px-4 mb-6">
+            <p className="text-spotify-gray text-sm md:text-base font-circular">
+              ⚠️ This app is currently pending approval from Spotify. For now,
+              only authorized test users can access it. Thank you for your
+              patience!
+            </p>
+            <p className="text-spotify-gray text-sm md:text-base mt-2 font-circular">
+              Want to test it? Contact me at{" "}
+              <a
+                href="mailto:oussamasallak1@gmail.com"
+                className="text-spotify-green hover:underline font-bold"
+              >
+                oussamasallak1@gmail.com
+              </a>
+            </p>
+          </div>
           <button
             onClick={handleLogin}
             className="inline-block bg-spotify-green text-white rounded-[30px] tracking-[2px] text-center font-bold mt-2 px-8 py-3"
