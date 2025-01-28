@@ -1,5 +1,5 @@
 import { Artist, Track, UserProfile } from '@/types/spotify';
-import { getAccessToken, loginUrl } from '@/utils/spotify';
+import { getAccessToken, logout } from '@/utils/spotify';
 import {
   getPlaylists,
   getTopArtists,
@@ -23,11 +23,12 @@ export function useSpotifyData() {
       try {
         const token = await getAccessToken();
         if (!token) {
-          window.location.href = loginUrl();
+          // If no token, just return - the home page will handle the login flow
+          setLoading(false);
           return;
         }
 
-        const [profileData, artistsData, tracksData,playlistsData] =
+        const [profileData, artistsData, tracksData, playlistsData] =
           await Promise.all([
             getUserProfile(),
             getTopArtists('long_term'),
@@ -44,7 +45,8 @@ export function useSpotifyData() {
         console.error(err);
 
         if (axios.isAxiosError(err) && (err.response?.status === 401 || err.response?.status === 403)) {
-          window.location.href = loginUrl();
+          // For auth errors, logout and clear tokens
+          logout();
           return;
         }
 

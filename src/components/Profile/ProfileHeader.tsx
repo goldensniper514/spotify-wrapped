@@ -1,6 +1,7 @@
 import { UserIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
+import { logout } from "@/utils/spotify";
 
 interface ProfileHeaderProps {
   profile: {
@@ -82,10 +83,7 @@ export function ProfileHeader({
 
       {/* Logout Button */}
       <button
-        onClick={() => {
-          localStorage.clear();
-          window.location.reload();
-        }}
+        onClick={logout}
         className="mt-[30px] px-[30px] py-3 border border-white rounded-[30px] text-xs font-bold tracking-[1px] uppercase text-center
           hover:bg-white hover:text-black transition-all duration-250"
       >
