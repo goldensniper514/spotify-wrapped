@@ -2,6 +2,10 @@
 
 A web application that allows users to view their Spotify profile and listening data using the Spotify Web API.
 
+## Demo
+
+[![Spotify Profile Viewer Demo](https://img.youtube.com/vi/d9XKMcLltvw/0.jpg)](https://youtu.be/d9XKMcLltvw)
+
 ## Prerequisites
 
 Before you begin, ensure you have:
@@ -18,8 +22,8 @@ Before you begin, ensure you have:
 1. Clone the repository:
 
    ```bash
-   git clone [your-repository-url]
-   cd spotify-profile
+   git clone https://github.com/osallak/spotify-wrapped
+   cd spotif-wrapped
    ```
 
 2. Install dependencies:
