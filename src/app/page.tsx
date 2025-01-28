@@ -5,6 +5,7 @@ import { getAccessToken } from "@/utils/spotify";
 import User from "@/components/User";
 import { useRouter } from "next/navigation";
 import { Container } from "@/components/Container";
+import IconGithub from "@/icons/github";
 
 export default function Home() {
   const [accessToken, setAccessToken] = useState<string | null>(null);
@@ -90,6 +91,19 @@ export default function Home() {
           >
             Login to Spotify
           </button>
+          <div className="mt-8 text-spotify-gray text-sm flex items-center gap-2">
+            <span className="font-bold">Built by Oussama Sallak</span>
+            <a
+              href="https://github.com/osallak"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-spotify-gray hover:text-spotify-green transition-colors"
+            >
+              <div className="w-5 h-5 text-[#9B9B9B] hover:text-spotify-green">
+                <IconGithub />
+              </div>
+            </a>
+          </div>
         </div>
       )}
     </Container>
