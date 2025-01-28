@@ -62,15 +62,15 @@ export default function Home() {
   };
 
   return (
-    <Container className="bg-spotify-black">
+    <Container className="bg-spotify-black min-h-screen">
       {accessToken ? (
         <User />
       ) : (
-        <div className="flex min-h-screen flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)]">
           <h1 className="m-[0,0,10px] font-black text-2xl">Spotify Profile</h1>
           <button
             onClick={handleLogin}
-            className="inline-block bg-spotify-green text-white rounded-[30px] tracking-[2px] text-center font-bold mt-2"
+            className="inline-block bg-spotify-green text-white rounded-[30px] tracking-[2px] text-center font-bold mt-2 px-8 py-3"
           >
             Login to Spotify
           </button>
