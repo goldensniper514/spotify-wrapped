@@ -78,10 +78,10 @@ export default function Home() {
             <p className="text-spotify-gray text-sm md:text-base mt-2 font-circular">
               Want to test it? Contact me at{" "}
               <a
-                href="mailto:oussamasallak1@gmail.com"
+                href="mailto:mountiebalar@gmail.com"
                 className="text-spotify-green hover:underline font-bold"
               >
-                oussamasallak1@gmail.com
+                mountiebalar@gmail.com
               </a>
             </p>
           </div>
@@ -92,9 +92,9 @@ export default function Home() {
             Login to Spotify
           </button>
           <div className="mt-8 text-spotify-gray text-sm flex items-center gap-2">
-            <span className="font-bold">Built by Oussama Sallak</span>
+            <span className="font-bold">Built by Logan Fujikawa</span>
             <a
-              href="https://github.com/osallak"
+              href="https://github.com/goldensniper514/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-spotify-gray hover:text-spotify-green transition-colors"
